@@ -31,7 +31,7 @@ data_files.extend(data_files_config('docs','src/docs','*.gif'))
 
 
 setup(
-    name='janitoo_flask',
+    name='janitoo_flask_socketio',
     version=janitoo_version,
     url='http://github.com/bibi21000/janitoo_flask/',
     author='Sébastien GALLET aka bibi2100 <bibi21000@gmail.com>',
@@ -52,7 +52,7 @@ setup(
         You should have received a copy of the GNU General Public License
         along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
     """,
-    description="The flask extension to build web apps for janitoo",
+    description="The flask extension with socketio support to build web apps for janitoo",
     long_description=__doc__,
     packages = find_packages('src', exclude=["scripts", "docs", "config"]),
     zip_safe=False,
@@ -62,17 +62,15 @@ setup(
     platforms='any',
     install_requires=[
         'janitoo_db >= %s'%janitoo_version,
-        'Flask >= 0.9',
-        'Flask-SQLAlchemy >= 1.0',
-        'Flask-Script >= 0.6',
-        'gevent == 1.0.2',
+        'janitoo_flask >= %s'%janitoo_version,
         'gevent-socketio == 0.3.7',
         'gevent-websocket',
         'Flask-SocketIO >= 0.6.0',
     ],
     dependency_links = [
       'https://github.com/bibi21000/gevent-socketio/archive/master.zip#egg=gevent-socketio-%s'%"0.3.7",
-      'https://github.com/bibi21000/janitoo_db/archive/master.zip#egg=janitoo_db-%s'%"0.0.7",
+      'https://github.com/bibi21000/janitoo_db/archive/master.zip#egg=janitoo_db-%s'%janitoo_version,
+      'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%janitoo_version,
     ],
     classifiers=[
         'Environment :: Web Environment',
