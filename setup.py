@@ -31,7 +31,7 @@ data_files.extend(data_files_config('docs','src/docs','*.gif'))
 
 
 setup(
-    name='janitoo_flask_socketio',
+    name='janitoo_flask_websockets',
     version=janitoo_version,
     url='http://github.com/bibi21000/janitoo_flask/',
     author='Sébastien GALLET aka bibi2100 <bibi21000@gmail.com>',
@@ -52,7 +52,7 @@ setup(
         You should have received a copy of the GNU General Public License
         along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
     """,
-    description="The flask extension with socketio support to build web apps for janitoo",
+    description="The flask extension with websockets support to build web apps for janitoo",
     long_description=__doc__,
     packages = find_packages('src', exclude=["scripts", "docs", "config"]),
     zip_safe=False,
@@ -64,9 +64,8 @@ setup(
         'janitoo_db >= %s'%janitoo_version,
         'janitoo_flask >= %s'%janitoo_version,
         'gevent == 1.0.2',
-        'gevent-socketio == 0.3.7',
         'gevent-websocket',
-        'Flask-SocketIO >= 0.6.0',
+        'Flask-uWSGI-WebSocket',
     ],
     dependency_links = [
       'https://github.com/bibi21000/gevent-socketio/archive/master.zip#egg=gevent-socketio-%s'%"0.3.7",

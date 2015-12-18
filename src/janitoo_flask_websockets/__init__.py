@@ -56,7 +56,7 @@ import threading
 
 from pkg_resources import iter_entry_points
 
-from janitoo_flask_socketio.listener import ListenerSocketio
+from janitoo_flask_websockets.listener import ListenerWebsockets
 from janitoo_flask import FlaskJanitoo
 
 #~ print "================================================================================================= I'ts import !!!"
@@ -73,22 +73,22 @@ try:
 except ImportError:
     from flask import _request_ctx_stack as stack
 
-class FlaskJanitooSocketio(FlaskJanitoo):
+class FlaskJanitooWebsockets(FlaskJanitoo):
 
     def __init__(self, app=None, socketio=None, options=None, db=None):
         FlaskJanitoo.__init__(self, app=app, options=options, db=db)
-        self._socketio = socketio
-        if app is not None and socketio is not None and options is not None:
-            self.init_app(app, socketio, options, db)
+        self._websockets = websockets
+        if app is not None and websockets is not None and options is not None:
+            self.init_app(app, websockets, options, db)
 
-    def init_app(self, app, socketio, options, db=None):
+    def init_app(self, app, websockets, options, db=None):
         """
         """
-        if socketio is not None:
-            self._socketio = socketio
+        if websockets is not None:
+            self._websockets = websockets
         FlaskJanitoo.init_app(self, app=app, options=options, db=db)
 
     def create_listener(self):
         """Create the listener on first call
         """
-        self._listener = ListenerSocketio(self._socketio, self._app, self.options)
+        self._listener = ListenerWebsockets(self.websockets, self._app, self.options)

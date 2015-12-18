@@ -44,14 +44,14 @@ from janitoo_flask.network import NetworkFlask
 from janitoo.mqtt import MQTTClient
 from janitoo.options import JNTOptions
 
-class NetworkSocketio(NetworkFlask):
+class NetworkWebsockets(NetworkFlask):
     """The network manager for the flask application
     """
 
-    def __init__(self, socketio, app, stop_event, options, **kwargs):
+    def __init__(self, websockets, app, stop_event, options, **kwargs):
         """
         """
         NetworkFlask.__init__(self, app, stop_event, options, **kwargs)
-        self.socketio = socketio
-        self.extend_from_entry_points('janitoo_flask_socketio')
+        self.websockets = websockets
+        self.extend_from_entry_points('janitoo_flask_websockets')
 

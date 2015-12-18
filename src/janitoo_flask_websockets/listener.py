@@ -43,7 +43,7 @@ from janitoo.options import JNTOptions
 from janitoo.server import JNTControllerManager
 from janitoo.utils import HADD, HADD_SEP, CADD, json_dumps, json_loads
 from janitoo.dhcp import HeartbeatMessage, check_heartbeats, CacheManager
-from janitoo_flask_socketio.network import NetworkSocketio
+from janitoo_flask_websockets.network import NetworkWebsockets
 from janitoo_flask.controller import Controller
 from janitoo_flask.listener import ListenerThread
 
@@ -63,17 +63,17 @@ assert(COMMAND_DESC[COMMAND_DHCPD] == 'COMMAND_DHCPD')
 
 listener = None
 
-class ListenerSocketio(ListenerThread):
+class ListenerWebsockets(ListenerThread):
     """ The listener Tread
     """
 
-    def __init__(self, _socketio, _app, options):
+    def __init__(self, _websockets, _app, options):
         """The constructor"""
-        self.socketio = _socketio
+        self.websockets = websockets
         ListenerThread.__init__(self, _app, options)
-        self.extend_from_entry_points('janitoo_flask_socketio')
+        self.extend_from_entry_points('janitoo_flask_websockets')
 
     def create_network(self):
         """Create the listener on first call
         """
-        self.network = NetworkSocketio(self.socketio, self.app, self._stopevent, self.options, is_primary=False, is_secondary=True, do_heartbeat_dispatch=False)
+        self.network = NetworkWebsockets(self.websockets, self.app, self._stopevent, self.options, is_primary=False, is_secondary=True, do_heartbeat_dispatch=False)
