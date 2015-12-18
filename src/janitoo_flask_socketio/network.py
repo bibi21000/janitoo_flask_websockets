@@ -51,7 +51,7 @@ class NetworkSocketio(NetworkFlask):
     def __init__(self, socketio, app, stop_event, options, **kwargs):
         """
         """
-        NetworkFlask.__init__(self, stop_event, options, **kwargs)
+        NetworkFlask.__init__(self, app, stop_event, options, **kwargs)
         self.socketio = socketio
         self.extend_from_entry_points('janitoo_flask_socketio')
 

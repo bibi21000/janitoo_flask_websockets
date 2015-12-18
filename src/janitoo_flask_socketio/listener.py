@@ -69,8 +69,8 @@ class ListenerSocketio(ListenerThread):
 
     def __init__(self, _socketio, _app, options):
         """The constructor"""
-        ListenerThread.__init__(self, _app, options)
         self.socketio = _socketio
+        ListenerThread.__init__(self, _app, options)
         self.extend_from_entry_points('janitoo_flask_socketio')
 
     def create_network(self):

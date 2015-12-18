@@ -56,7 +56,7 @@ import threading
 
 from pkg_resources import iter_entry_points
 
-from janitoo_flask_socketio.listener import ListenerThread
+from janitoo_flask_socketio.listener import ListenerSocketio
 from janitoo_flask import FlaskJanitoo
 
 #~ print "================================================================================================= I'ts import !!!"
@@ -76,7 +76,7 @@ except ImportError:
 class FlaskJanitooSocketio(FlaskJanitoo):
 
     def __init__(self, app=None, socketio=None, options=None, db=None):
-        FlaskJanitoo__init__(self, app=app, options=options, db=db)
+        FlaskJanitoo.__init__(self, app=app, options=options, db=db)
         self._socketio = socketio
         if app is not None and socketio is not None and options is not None:
             self.init_app(app, socketio, options, db)
@@ -91,4 +91,4 @@ class FlaskJanitooSocketio(FlaskJanitoo):
     def create_listener(self):
         """Create the listener on first call
         """
-        self._listener = ListenerThread(self._socketio, self._app, self.options)
+        self._listener = ListenerSocketio(self._socketio, self._app, self.options)
