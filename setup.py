@@ -63,6 +63,7 @@ setup(
     install_requires=[
         'janitoo_db >= %s'%janitoo_version,
         'janitoo_flask >= %s'%janitoo_version,
+        'gevent == 1.0.2',
         'gevent-socketio == 0.3.7',
         'gevent-websocket',
         'Flask-SocketIO >= 0.6.0',
