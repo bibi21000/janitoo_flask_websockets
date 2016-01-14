@@ -57,9 +57,9 @@ setup(
     package_dir = { '': 'src' },
     platforms='any',
     install_requires=[
+        'Flask',
         'janitoo_db >= %s'%janitoo_version,
         'janitoo_flask >= %s'%janitoo_version,
-        'Flask',
         'gevent == 1.0.2',
         'gevent-websocket',
         'Flask-uWSGI-WebSocket',
