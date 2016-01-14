@@ -61,7 +61,7 @@ setup(
         'janitoo_flask >= %s'%janitoo_version,
         'gevent == 1.0.2',
         'gevent-websocket',
-        #~ 'Flask-uWSGI-WebSocket',
+        'Flask-uWSGI-WebSocket',
         'Flask',
     ],
     dependency_links = [
