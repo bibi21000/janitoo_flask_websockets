@@ -57,16 +57,16 @@ setup(
     package_dir = { '': 'src' },
     platforms='any',
     install_requires=[
-        'janitoo_db >= %s'%janitoo_version,
-        'janitoo_flask >= %s'%janitoo_version,
+        'janitoo_db',
+        'janitoo_flask',
         'gevent == 1.0.2',
         'gevent-websocket',
         'Flask-uWSGI-WebSocket',
         'Flask',
     ],
     dependency_links = [
-      'https://github.com/bibi21000/janitoo_db/archive/master.zip#egg=janitoo_db-%s'%janitoo_version,
-      'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%janitoo_version,
+      'https://github.com/bibi21000/janitoo_db/archive/master.zip#egg=janitoo_db',
+      'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask',
     ],
     classifiers=[
         'Environment :: Web Environment',
