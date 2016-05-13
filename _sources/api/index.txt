@@ -1,0 +1,30 @@
+janitoo_flask_websockets package
+================================
+
+Submodules
+----------
+
+janitoo_flask_websockets.listener module
+----------------------------------------
+
+.. automodule:: janitoo_flask_websockets.listener
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_flask_websockets.network module
+---------------------------------------
+
+.. automodule:: janitoo_flask_websockets.network
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_flask_websockets
+    :members:
+    :undoc-members:
+    :show-inheritance:
