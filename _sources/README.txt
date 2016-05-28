@@ -29,3 +29,7 @@ Documentation
 =============
 You can browse online documentation here : https://bibi21000.github.io/janitoo_flask_websockets/.
 
+Tutorial
+========
+You can find a tutorial here : https://bibi21000.github.io/janitoo_tutorial/.
+
